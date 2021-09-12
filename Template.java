@@ -88,7 +88,7 @@ class Template extends JFrame implements Serializable , ActionListener
 
 		getContentPane( ).add( jsp , new GridBagConstraints(0,2,1,1,1,75,GridBagConstraints.BASELINE,GridBagConstraints.BOTH,new
 				Insets(0,0,0,0),0,0));
-		setTitle("Marvellous Packer-Unpacker");
+		setTitle("Packer-Unpacker");
 
 		Clock();
 		CloseAndMin();

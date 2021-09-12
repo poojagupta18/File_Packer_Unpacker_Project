@@ -17,8 +17,28 @@ public class Unpack
 		unpack(src);
 	}
 
-	public void unpack(String filePath) throws Exception
+	public void unpack(String src) throws Exception
 	{
+
+		// From the initialization vector, we create an IvParameterSpec which is
+		// required when creating the Cipher.
+		byte[] iv = new byte[128 / 8];
+		SecureRandom random = new SecureRandom();
+		random.nextBytes(iv);
+
+		IvParameterSpec ivspec = new IvParameterSpec(iv);
+
+		// KeyGenerator provides the functionality of a secret (symmetric) key
+		// generator.
+
+		KeyGenerator kgen = KeyGenerator.getInstance("AES");
+		SecretKey skey = kgen.generateKey();
+
+		Cipher ci = Cipher.getInstance("AES/CBC/PKCS5Padding");
+		ci.init(Cipher.DECRYPT_MODE, skey, ivspec);
+
+		FileEncryptionDecryption.processFile(ci, src, filePath);
+
 		try
 		{
 			FileInputStream instream = new FileInputStream(filePath);

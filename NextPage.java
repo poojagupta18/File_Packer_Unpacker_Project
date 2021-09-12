@@ -56,7 +56,7 @@ class NextPage extends Template implements ActionListener
 			try
 			{
 				System.out.println("NextPage by clicking pack");
-				MarvellousPackFront obj = new MarvellousPackFront();
+				PackFront obj = new PackFront();
 				System.out.println(" AFter packing NextPage by clicking pack");
 			}
 			catch(Exception e){}
@@ -65,7 +65,7 @@ class NextPage extends Template implements ActionListener
 		{
 			System.out.println("NextPage by clicking unpack");
 			this.setVisible(false);
-			MarvellousUnpackFront obj = new MarvellousUnpackFront(); 
+			UnpackFront obj = new UnpackFront();
 			System.out.println("NextPage by after clicking unpack");}
 	}
 } 
